@@ -1,4 +1,4 @@
-module github.com/greenphyto/streamer/v1
+module github.com/greenphyto/streamer
 
 go 1.19
 
