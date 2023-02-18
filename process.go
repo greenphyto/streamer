@@ -63,13 +63,15 @@ func (p Process) Spawn(path, URI string) *exec.Cmd {
 		"anullsrc=channel_layout=stereo:sample_rate=44100",
 		"-vsync",
 		"0",
+		"-vf",
+		"scale=w=640:h=360:force_original_aspect_ratio=decrease",
 		"-copyts",
 		"-vcodec",
 		"copy",
 		"-movflags",
 		"frag_keyframe+empty_moov",
 	}
-	if (!p.audio) {
+	if !p.audio {
 		processCommands = append(processCommands, "-an")
 	}
 	processCommands = append(processCommands,
