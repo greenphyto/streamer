@@ -68,6 +68,12 @@ func (p Process) Spawn(path, URI string) *exec.Cmd {
 		"copy",
 		"-movflags",
 		"frag_keyframe+empty_moov",
+		"-vf",
+		"scale=640:360",
+		"-c",
+		"copy",
+		"-bsf:v",
+		"h264_mp4toannexb",
 	}
 	if !p.audio {
 		processCommands = append(processCommands, "-an")
