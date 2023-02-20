@@ -100,8 +100,6 @@ func (p Process) Spawn(path, URI string) *exec.Cmd {
 		"-hls_list_size",
 		"3",
 		"-hls_segment_filename",
-		"-bsf:v",
-		"h264_mp4toannexb",
 		fmt.Sprintf("%s/%%d.ts", path),
 		fmt.Sprintf("%s/index.m3u8", path),
 	)
